@@ -86,15 +86,23 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
+  
     const toastId = toast.loading('Sending your message...', {
       description: 'Please wait while we submit your form',
     });
-
+  
     try {
-      // ✅ Send the form data using Axios
-      const response = await axios.post('http://localhost:8080/api/contact', formData);
-
+      // ✅ Updated with Render backend URL
+      const response = await axios.post(
+        'https://portfolio11-jhur.onrender.com/api/contact',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+  
       toast.success('Message sent successfully!', {
         id: toastId,
         description: 'I will get back to you soon',
@@ -103,15 +111,19 @@ const App = () => {
           onClick: () => console.log('Dismissed'),
         },
       });
-
+  
       // Clear form
       setFormData({ name: '', email: '', message: '' });
-
+  
     } catch (error) {
+      console.error('Submission error:', error); // For debugging
+      
       toast.error('Failed to send message', {
         id: toastId,
         description:
-          error.response?.data?.error || error.message || 'Please try again later',
+          error.response?.data?.error || 
+          error.message || 
+          'Please try again later',
         action: {
           label: 'Retry',
           onClick: () => handleSubmit(e),
