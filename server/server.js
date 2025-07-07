@@ -5,7 +5,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173/', // For local dev
+    'https://portfolio11-taupe.vercel.app/' // Your live frontend
+  ]
+}));
 app.use(express.json());
 
 const contactRoutes = require("./routes/contact");
