@@ -192,8 +192,8 @@ const App = () => {
       description: "Cloud-based text sharing platform with expiration timers and syntax highlighting",
       tags: ["MongoDB", "Express", "React", "Node.js"],
       year: "2024",
-      githubUrl: "#",
-      liveUrl: "#",
+      githubUrl: "https://github.com/adimadhubani/clipboard",
+      liveUrl: "https://clipboard-ui.onrender.com/",
       imageUrl: "https://media.gettyimages.com/id/183304802/photo/young-team-working-on-laptop-computers-and-writing.jpg?s=612x612&w=0&k=20&c=-rUlt2Q2d174iB9_dPXZsDvrceORKe4TY43ektSDqnk="
     },
     {
