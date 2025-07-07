@@ -166,8 +166,8 @@ const App = () => {
       tags: ["MERN Stack", "Socket.IO", "JWT Auth", "Tailwind CSS"],
       year: "2024",
       imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdCUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      githubUrl: "#",
-      liveUrl: "#"
+      githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
+      liveUrl: "https://chat-app-tfbo.onrender.com/login"
     },
     {
       title: "Video Conference Platform",
