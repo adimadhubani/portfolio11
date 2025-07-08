@@ -175,7 +175,7 @@ const App = () => {
       tags: ["WebRTC", "Socket.IO", "Node.js", "React"],
       year: "2023",
       imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlkZW8lMjBjYWxsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      githubUrl: "#",
+      githubUrl: "https://github.com/adimadhubani/Webrtc_videocall",
       liveUrl: "#"
     },
     {
@@ -183,8 +183,8 @@ const App = () => {
       description: "Complete online store with product catalog, cart, and payment integration",
       tags: ["MERN", "Redux", "Stripe API", "JWT Auth"],
       year: "2023",
-      githubUrl: "#",
-      liveUrl: "#",
+      githubUrl: "https://github.com/adimadhubani/complete_cart11",
+      liveUrl: "https://complete-cart11-1.onrender.com/",
       imageUrl: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZS1jb21tZXJjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
     },
     {
@@ -201,7 +201,7 @@ const App = () => {
       description: "Web app that generates images from text prompts using OpenAI's DALL-E API",
       tags: ["React", "Node.js", "OpenAI API", "Tailwind CSS"],
       year: "2024",
-      githubUrl: "#",
+      githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
       liveUrl: "#",
       imageUrl: "https://c4.wallpaperflare.com/wallpaper/238/832/888/artificial-intelligence-binary-digital-art-glowing-wallpaper-preview.jpg"
     }
