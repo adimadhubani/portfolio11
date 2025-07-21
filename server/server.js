@@ -9,7 +9,9 @@ app.use(cors({
   origin: [
     'http://localhost:5173/', // For local dev
     'https://portfolio11-taupe.vercel.app/' // Your live frontend
-  ]
+  ],
+  methods: ['GET', 'POST', 'OPTIONS'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type'],
 }));
 app.use(express.json());
 
