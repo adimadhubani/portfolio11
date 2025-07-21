@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+import { Link } from 'react-router-dom';
+
 import {
   Github,
   Linkedin,
@@ -566,16 +568,18 @@ const App = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="h-5 w-5 text-primary" />
+                  {/* <Link href='adaryadhav2489@gmail.com'>adaryadhav2489@gmail.com</Link> */}
                   <span>adaryadhav2489@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Linkedin className="h-5 w-5 text-primary" />
-                  <span>https://www.linkedin.com/in/aditya-kumar-989ba2294/</span>
+                  <a href="https://www.linkedin.com/in/aditya-kumar-989ba2294/">https://www.linkedin.com/in/aditya-kumar-989ba2294/</a>
+                  {/* <span>https://www.linkedin.com/in/aditya-kumar-989ba2294/</span> */}
                 </div>
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <Twitter className="h-5 w-5 text-primary" />
                   <span>twitter.com/adaryadhav</span>
-                </div>
+                </div> */}
               </div>
             </motion.div>
             <motion.div
