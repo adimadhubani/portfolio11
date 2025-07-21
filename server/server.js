@@ -8,7 +8,8 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173/', // For local dev
-    'https://portfolio11-taupe.vercel.app/' // Your live frontend
+    // 'https://portfolio11-taupe.vercel.app/' // Your live frontend
+    'https://portfolio11-r22eai8n0-adityas-projects-b0fc4d0d.vercel.app'
   ],
   methods: ['GET', 'POST', 'OPTIONS'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type'],
