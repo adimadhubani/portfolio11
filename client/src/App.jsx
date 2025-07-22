@@ -27,6 +27,7 @@ import { Input } from './components/ui/input';
 import { Textarea } from './components/ui/textarea';
 import { toast } from 'sonner';
 import { ToasterProvider } from './components/ui/toaster';
+import { ThemeToggle } from './components/theme-toggle';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -215,35 +216,48 @@ const App = () => {
       <ToasterProvider />
       {/* Navigation */}
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Avatar className="h-8 w-8">
-              <AvatarImage onClick={() => scrollToSection('hero')} src="https://avatars.githubusercontent.com/u/163722256?…00&u=c1e9c99d11229e54c739fdbedb3ecc0d929aef68&v=4" />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-            <span className="font-medium cursor-pointer" onClick={() => scrollToSection('hero')}>Aditya Kumar</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant={activeSection === item.id ? 'secondary' : 'ghost'}
-                className="px-2"
-                onClick={() => scrollToSection(item.id)}
-              >
-                {item.label}
-              </Button>
-            ))}
-            <Button variant="default" onClick={() => scrollToSection('contact')}>
-              Hire Me
-              <ArrowRight className="ml-2 h-4 w-4" />
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <Avatar className="h-8 w-8">
+            <AvatarImage
+              onClick={() => scrollToSection("hero")}
+              src="https://avatars.githubusercontent.com/u/163722256"
+            />
+            <AvatarFallback>JD</AvatarFallback>
+          </Avatar>
+          <span
+            className="font-medium cursor-pointer"
+            onClick={() => scrollToSection("hero")}
+          >
+            Aditya Kumar
+          </span>
+        </div>
+        <nav className="hidden md:flex items-center gap-4">
+          {navItems.map((item) => (
+            <Button
+              key={item.id}
+              variant={activeSection === item.id ? "secondary" : "ghost"}
+              className="px-2"
+              onClick={() => scrollToSection(item.id)}
+            >
+              {item.label}
             </Button>
-          </nav>
-          <Button variant="ghost" size="icon" className="md:hidden">
+          ))}
+          <Button variant="default" onClick={() => scrollToSection("contact")}>
+            Hire Me
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <ThemeToggle />
+        </nav>
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <Button variant="ghost" size="icon">
             <ChevronDown className="h-5 w-5" />
           </Button>
         </div>
-      </header>
+      </div>
+    </header>
+
 
       {/* Hero Section */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -316,18 +330,27 @@ const App = () => {
                 About Me
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight mb-6">
-                MERN Stack Developer | IIIT Bhagalpur ’23-27
+              MERN Stack Developer | UI/UX Enthusiast | IIIT Bhagalpur ’23-27
               </h2>
 
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  I'm a passionate UI/UX specialist with a strong technical background in frontend development. This unique combination allows me to not only design beautiful interfaces but also implement them with precision.
+                Passionate about crafting seamless digital experiences through full-stack development (MERN) and user-centric design. As a 3rd-year CSE student at IIIT Bhagalpur, I blend technical rigor with creative problem-solving to build scalable, intuitive applications.
                 </p>
                 <p>
-                  Currently working as a Senior Product Designer at TechCorp, where I lead design initiatives for our flagship SaaS platform serving over 10,000 businesses worldwide.
+                🔹 Frontend Precision: Expertise in React.js, Next.js, Tailwind CSS, and modern UI/UX principles to design pixel-perfect interfaces.<br/>
+                🔹 Backend Proficiency: Skilled in Node.js, Express, MongoDB, and RESTful APIs to architect robust systems.<br/>
+                🔹 Design-Dev Synergy: Bridge the gap between aesthetics and functionality—translating wireframes into performant code.
                 </p>
+                <h3 className='text-2xl'>Current Focus:</h3>
                 <p>
-                  My approach combines user-centered design principles with modern development practices to create products that are both visually stunning and technically robust.
+                Contributing to open-source projects & hackathons.<br/>
+
+                Building SaaS prototypes with end-to-end MERN stack implementation.
+
+                Deepening my knowledge of microservices, cloud (AWS/GCP), and DevOps practices.
+
+
                 </p>
               </div>
               <div className="mt-8 flex gap-4">
@@ -345,7 +368,7 @@ const App = () => {
                 </Button>
                 <Button variant="outline" asChild>
                   <a
-                    href="https://docs.google.com/spreadsheets/d/1Zat3MNyckdi0pHa5Ayo88nzb3k7t1sB0dMxa08qriPo/edit?gid=599358521#gid=599358521"
+                    href="https://drive.google.com/file/d/1DzMrL4ZwF6Iza4FoVotycf_DFYx5EouA/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
