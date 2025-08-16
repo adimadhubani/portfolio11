@@ -168,7 +168,7 @@ const App = () => {
       description: "A full-stack chat app with real-time messaging, user authentication, and group chats using Socket.IO",
       tags: ["MERN Stack", "Socket.IO", "JWT Auth", "Tailwind CSS"],
       year: "2024",
-      imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdCUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
       githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
       liveUrl: "https://chat-app-tfbo.onrender.com/login"
     },
@@ -177,7 +177,7 @@ const App = () => {
       description: "Zoom-like video calling app with screen sharing and chat functionality",
       tags: ["WebRTC", "Socket.IO", "Node.js", "React"],
       year: "2023",
-      imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlkZW8lMjBjYWxsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
       githubUrl: "https://github.com/adimadhubani/Webrtc_videocall",
       liveUrl: "#"
     },
@@ -188,7 +188,7 @@ const App = () => {
       year: "2023",
       githubUrl: "https://github.com/adimadhubani/complete_cart11",
       liveUrl: "https://complete-cart11-1.onrender.com/",
-      imageUrl: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZS1jb21tZXJjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      imageUrl: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
     },
     {
       title: "Online Clipboard (Pastebin Clone)",
@@ -200,16 +200,34 @@ const App = () => {
       imageUrl: "https://media.gettyimages.com/id/183304802/photo/young-team-working-on-laptop-computers-and-writing.jpg?s=612x612&w=0&k=20&c=-rUlt2Q2d174iB9_dPXZsDvrceORKe4TY43ektSDqnk="
     },
     {
-      title: "AI Image Generator",
-      description: "Web app that generates images from text prompts using OpenAI's DALL-E API",
+      title: "AI Interview Generator",
+      description: "Web app that generates interview questions with AI and evaluates responses using NLP",
       tags: ["React", "Node.js", "OpenAI API", "Tailwind CSS"],
       year: "2024",
-      githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
-      liveUrl: "#",
+      githubUrl: "https://github.com/adimadhubani/ai_interview",
+      liveUrl: "https://ai-interview-eight-hazel.vercel.app/sign-in",
       imageUrl: "https://c4.wallpaperflare.com/wallpaper/238/832/888/artificial-intelligence-binary-digital-art-glowing-wallpaper-preview.jpg"
+    },
+    {
+      title: "Expense Tracker",
+      description: "Personal finance manager to track income, expenses, and visualize spending trends with charts",
+      tags: ["React", "Node.js", "MongoDB", "Chart.js"],
+      year: "2024",
+      githubUrl: "https://github.com/adimadhubani/Expense_tracker",
+      liveUrl: "https://expense-tracker-phi-snowy.vercel.app/",
+      imageUrl: "https://cdn.dribbble.com/userupload/10787987/file/original-a53aa747ce5c29282bfc9f3fa29aa97c.png?resize=2048x1536&vertical=center"
+    },
+    {
+      title: "Real-Time Crypto Trading Chart",
+      description: "Live cryptocurrency price tracker with interactive candlestick charts and WebSocket updates",
+      tags: ["React", "Node.js", "WebSocket", "TradingView API"],
+      year: "2024",
+      githubUrl: "https://github.com/adimadhubani/trading_chart",
+      liveUrl: "https://trading-chart-kappa.vercel.app/",
+      imageUrl: "https://cdn.dribbble.com/userupload/43591091/file/original-88325c21b2d174ba10a4a008e64ef081.png?resize=2048x1536&vertical=center"
     }
-
   ];
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">
