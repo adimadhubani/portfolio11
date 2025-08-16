@@ -31,6 +31,10 @@ import { ThemeToggle } from './components/theme-toggle';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [rotation, setRotation] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [paused, setPaused] = useState(false);
+  const intervalRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -138,6 +142,26 @@ const App = () => {
   };
 
 
+   // Start continuous rotation
+  const startRotation = () => {
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => {
+      setRotation((prev) => prev + 60);
+    }, 2500); // speed (2.5s per step)
+  };
+
+  // Stop rotation
+  const stopRotation = () => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  };
+
+  useEffect(() => {
+    startRotation();
+    return () => stopRotation();
+  }, []);
+
+
   const navItems = [
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
@@ -168,7 +192,7 @@ const App = () => {
       description: "A full-stack chat app with real-time messaging, user authentication, and group chats using Socket.IO",
       tags: ["MERN Stack", "Socket.IO", "JWT Auth", "Tailwind CSS"],
       year: "2024",
-      imageUrl: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      imageUrl: "https://cdn.dribbble.com/userupload/9508816/file/original-8a9ac07ac11f4732d99e1799473aa5cd.png?crop=0x0-2400x1800&format=webp&resize=640x480&vertical=center",
       githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
       liveUrl: "https://chat-app-tfbo.onrender.com/login"
     },
@@ -227,6 +251,8 @@ const App = () => {
       imageUrl: "https://cdn.dribbble.com/userupload/43591091/file/original-88325c21b2d174ba10a4a008e64ef081.png?resize=2048x1536&vertical=center"
     }
   ];
+
+  
   
 
   return (
@@ -493,101 +519,113 @@ const App = () => {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="scroll-mt-24">
-          <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">
-              AI & Full-Stack Projects
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              My Technical Creations
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Building solutions that blend AI with modern web development
-            </p>
-          </div>
-          <div className="grid gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="hover:shadow-lg transition-all duration-300 group">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="md:col-span-2 p-6">
-                      <CardHeader className="p-0 mb-4">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-2xl group-hover:text-primary transition-colors">
-                            {project.title}
-                          </CardTitle>
-                          <span className="text-sm text-muted-foreground">
-                            {project.year}
-                          </span>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <p className="text-muted-foreground mb-4">
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {project.tags.map((tag) => (
-                            <Badge
-                              key={tag}
-                              variant="outline"
-                              className="hover:bg-primary/10"
-                            >
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                      <CardFooter className="p-0 gap-4">
-                        {project.githubUrl && (
-                          <Button variant="outline" asChild>
-                            <a
-                              href={project.githubUrl}
-                              target="_blank"
-                              className="flex items-center"
-                            >
-                              <Github className="mr-2 h-4 w-4" />
-                              Code
-                            </a>
-                          </Button>
-                        )}
-                        {project.liveUrl && (
-                          <Button asChild>
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              className="flex items-center"
-                            >
-                              <ExternalLink className="mr-2 h-4 w-4" />
-                              Live Demo
-                            </a>
-                          </Button>
-                        )}
-                      </CardFooter>
-                    </div>
-                    <div className="hidden md:block relative overflow-hidden rounded-r-lg">
-                      <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = "data:image/svg+xml;base64,[YOUR_FALLBACK_IMAGE]";
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <section id="projects" className="scroll-mt-24 relative overflow-hidden">
+      <div className="text-center mb-16">
+        <Badge variant="outline" className="mb-4">
+          AI & Full-Stack Projects
+        </Badge>
+        <h2 className="text-3xl font-bold tracking-tight mb-4">
+          My Technical Creations
+        </h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Building solutions that blend AI with modern web development
+        </p>
+      </div>
 
+      {/* Auto-scrolling container */}
+      <motion.div
+        className="flex gap-6"
+        animate={{ x: paused ? 0 : ["0%", "-50%"] }}
+        transition={{ duration: 8, ease: "linear", repeat: Infinity }}
+      >
+        {/* Duplicate projects for infinite scroll */}
+        {[...projects, ...projects].map((project, index) => (
+          <motion.div
+            key={index}
+            className="flex-shrink-0 w-[350px]"
+            onMouseEnter={() => {
+              setPaused(true);
+              setHoveredIndex(index);
+            }}
+            onMouseLeave={() => {
+              setPaused(false);
+              setHoveredIndex(null);
+            }}
+            animate={{
+              scale: hoveredIndex === index ? 1.08 : 1, // zoom hovered card
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <Card className="h-full transition-all duration-300">
+              <div className="grid grid-rows-[auto_1fr_auto] h-[450px]">
+                <div className="relative overflow-hidden rounded-t-lg h-40">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <div className="p-6 overflow-hidden">
+                  <CardHeader className="p-0 mb-4">
+                    <div className="flex justify-between items-start">
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      <span className="text-sm text-muted-foreground">
+                        {project.year}
+                      </span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <p className="text-muted-foreground mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <Badge
+                          key={tag}
+                          variant="outline"
+                          className="hover:bg-primary/10"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </div>
+                <CardFooter className="p-4 gap-4">
+                  {project.githubUrl && (
+                    <Button variant="outline" asChild>
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        className="flex items-center"
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
+                  {project.liveUrl && (
+                    <Button asChild>
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        className="flex items-center"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
+                </CardFooter>
+              </div>
+            </Card>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-24">
           <div className="grid md:grid-cols-2 gap-12">
