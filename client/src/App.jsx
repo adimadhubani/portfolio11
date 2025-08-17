@@ -196,15 +196,15 @@ const App = () => {
       githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
       liveUrl: "https://chat-app-tfbo.onrender.com/login"
     },
-    {
-      title: "Video Conference Platform",
-      description: "Zoom-like video calling app with screen sharing and chat functionality",
-      tags: ["WebRTC", "Socket.IO", "Node.js", "React"],
-      year: "2023",
-      imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-      githubUrl: "https://github.com/adimadhubani/Webrtc_videocall",
-      liveUrl: "#"
-    },
+    // {
+    //   title: "Video Conference Platform",
+    //   description: "Zoom-like video calling app with screen sharing and chat functionality",
+    //   tags: ["WebRTC", "Socket.IO", "Node.js", "React"],
+    //   year: "2023",
+    //   imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+    //   githubUrl: "https://github.com/adimadhubani/Webrtc_videocall",
+    //   liveUrl: "#"
+    // },
     {
       title: "E-Commerce Website",
       description: "Complete online store with product catalog, cart, and payment integration",
@@ -213,6 +213,15 @@ const App = () => {
       githubUrl: "https://github.com/adimadhubani/complete_cart11",
       liveUrl: "https://complete-cart11-1.onrender.com/",
       imageUrl: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      title: "Real-Time Crypto Trading Chart",
+      description: "Live cryptocurrency price tracker with interactive candlestick charts and WebSocket updates",
+      tags: ["React", "Node.js", "WebSocket", "TradingView API"],
+      year: "2024",
+      githubUrl: "https://github.com/adimadhubani/trading_chart",
+      liveUrl: "https://trading-chart-kappa.vercel.app/",
+      imageUrl: "https://cdn.dribbble.com/userupload/43591091/file/original-88325c21b2d174ba10a4a008e64ef081.png?resize=2048x1536&vertical=center"
     },
     {
       title: "Online Clipboard (Pastebin Clone)",
@@ -241,15 +250,7 @@ const App = () => {
       liveUrl: "https://expense-tracker-phi-snowy.vercel.app/",
       imageUrl: "https://cdn.dribbble.com/userupload/10787987/file/original-a53aa747ce5c29282bfc9f3fa29aa97c.png?resize=2048x1536&vertical=center"
     },
-    {
-      title: "Real-Time Crypto Trading Chart",
-      description: "Live cryptocurrency price tracker with interactive candlestick charts and WebSocket updates",
-      tags: ["React", "Node.js", "WebSocket", "TradingView API"],
-      year: "2024",
-      githubUrl: "https://github.com/adimadhubani/trading_chart",
-      liveUrl: "https://trading-chart-kappa.vercel.app/",
-      imageUrl: "https://cdn.dribbble.com/userupload/43591091/file/original-88325c21b2d174ba10a4a008e64ef081.png?resize=2048x1536&vertical=center"
-    }
+   
   ];
 
   
