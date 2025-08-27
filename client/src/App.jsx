@@ -34,6 +34,7 @@ const App = () => {
   const [rotation, setRotation] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [paused, setPaused] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const intervalRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -196,15 +197,17 @@ const App = () => {
       githubUrl: "https://github.com/adimadhubani/chatgpt_clone",
       liveUrl: "https://chat-app-tfbo.onrender.com/login"
     },
-    // {
-    //   title: "Video Conference Platform",
-    //   description: "Zoom-like video calling app with screen sharing and chat functionality",
-    //   tags: ["WebRTC", "Socket.IO", "Node.js", "React"],
-    //   year: "2023",
-    //   imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-    //   githubUrl: "https://github.com/adimadhubani/Webrtc_videocall",
-    //   liveUrl: "#"
-    // },
+    {
+      title: "AI-Powered RAG Chatbot (Docs & Websites)",
+      description:
+        "An intelligent chatbot that lets users upload PDFs or paste any website URL and ask questions about its content. Built with LangChain, Pinecone, and vector embeddings for Retrieval-Augmented Generation (RAG).",
+      tags: ["Next.js", "LangChain", "Pinecone", "OpenAI API", "Tailwind CSS"],
+      year: "2025",
+      githubUrl: "https://github.com/adimadhubani/college_chatbot", // 👉 replace with your repo link
+      liveUrl: "https://college-chatbot-kappa.vercel.app//", // 👉 replace with your deployed link
+      imageUrl:
+        "https://stream-blog-v2.imgix.net/blog/wp-content/uploads/d13db73118f4dff46d005cc4bdee21ae/Twitter-mar479-1600x900px.png?auto=format&auto=compress", // AI chatbot illustration
+    },
     {
       title: "E-Commerce Website",
       description: "Complete online store with product catalog, cart, and payment integration",
@@ -533,31 +536,114 @@ const App = () => {
         </p>
       </div>
 
-      {/* Auto-scrolling container */}
+      {/* 🔥 Auto-scrolling TOP 5 projects */}
       <motion.div
-        className="flex gap-6"
+        className="flex gap-6 mb-12"
         animate={{ x: paused ? 0 : ["0%", "-50%"] }}
         transition={{ duration: 8, ease: "linear", repeat: Infinity }}
       >
-        {/* Duplicate projects for infinite scroll */}
-        {[...projects, ...projects].map((project, index) => (
-          <motion.div
-            key={index}
-            className="flex-shrink-0 w-[350px]"
-            onMouseEnter={() => {
-              setPaused(true);
-              setHoveredIndex(index);
-            }}
-            onMouseLeave={() => {
-              setPaused(false);
-              setHoveredIndex(null);
-            }}
-            animate={{
-              scale: hoveredIndex === index ? 1.08 : 1, // zoom hovered card
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
-            <Card className="h-full transition-all duration-300">
+        {[...projects.slice(0, 5), ...projects.slice(0, 5)].map(
+          (project, index) => (
+            <motion.div
+              key={index}
+              className="flex-shrink-0 w-[350px]"
+              onMouseEnter={() => {
+                setPaused(true);
+                setHoveredIndex(index);
+              }}
+              onMouseLeave={() => {
+                setPaused(false);
+                setHoveredIndex(null);
+              }}
+              animate={{ scale: hoveredIndex === index ? 1.08 : 1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Card className="h-full transition-all duration-300">
+                <div className="grid grid-rows-[auto_1fr_auto] h-[450px]">
+                  <div className="relative overflow-hidden rounded-t-lg h-40">
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </div>
+                  <div className="p-6 overflow-hidden">
+                    <CardHeader className="p-0 mb-4">
+                      <div className="flex justify-between items-start">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                          {project.title}
+                        </CardTitle>
+                        <span className="text-sm text-muted-foreground">
+                          {project.year}
+                        </span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <Badge
+                            key={tag}
+                            variant="outline"
+                            className="hover:bg-primary/10"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </div>
+                  <CardFooter className="p-4 gap-4">
+                    {project.githubUrl && (
+                      <Button variant="outline" asChild>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          className="flex items-center"
+                        >
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
+                    {project.liveUrl && (
+                      <Button asChild>
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          className="flex items-center"
+                        >
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
+                  </CardFooter>
+                </div>
+              </Card>
+            </motion.div>
+          )
+        )}
+      </motion.div>
+
+      {/* 📌 Show More / Less */}
+      <div className="text-center">
+        <Button
+          variant="outline"
+          onClick={() => setShowAll((prev) => !prev)}
+          className="mb-8"
+        >
+          {showAll ? "Show Less" : "Show More Projects"}
+        </Button>
+      </div>
+
+      {showAll && (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="h-full">
               <div className="grid grid-rows-[auto_1fr_auto] h-[450px]">
                 <div className="relative overflow-hidden rounded-t-lg h-40">
                   <img
@@ -570,9 +656,7 @@ const App = () => {
                 <div className="p-6 overflow-hidden">
                   <CardHeader className="p-0 mb-4">
                     <div className="flex justify-between items-start">
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {project.title}
-                      </CardTitle>
+                      <CardTitle className="text-xl">{project.title}</CardTitle>
                       <span className="text-sm text-muted-foreground">
                         {project.year}
                       </span>
@@ -623,10 +707,14 @@ const App = () => {
                 </CardFooter>
               </div>
             </Card>
-          </motion.div>
-        ))}
-      </motion.div>
+          ))}
+        </div>
+      )}
     </section>
+
+
+
+    
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-24">
           <div className="grid md:grid-cols-2 gap-12">
