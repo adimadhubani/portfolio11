@@ -49,7 +49,7 @@ const profile = {
   linkedin: 'https://www.linkedin.com/in/aditya-kumar-989ba2294/',
   github: 'https://github.com/adimadhubani',
   resumeUrl: 'https://drive.google.com/file/d/1mBKbiTxE6Ie3yxCwbi9KTzKy8A6aKcVL/view',
-  avatar: 'https://drive.google.com/file/d/1hgqEvhCHmruvn8KtjBau7O7JBQG_UsC6/view?usp=sharing',
+  avatar: 'https://drive.google.com/file/d/1hgqEvhCHmruvn8KtjBau7O7JBQG_UsC6/view',
 };
 
 const coursework = [
