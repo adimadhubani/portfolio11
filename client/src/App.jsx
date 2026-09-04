@@ -49,7 +49,7 @@ const profile = {
   linkedin: 'https://www.linkedin.com/in/aditya-kumar-989ba2294/',
   github: 'https://github.com/adimadhubani',
   resumeUrl: 'https://drive.google.com/file/d/1mBKbiTxE6Ie3yxCwbi9KTzKy8A6aKcVL/view',
-  avatar: 'https://media.licdn.com/dms/image/v2/D4D35AQE6a7WNFix8iw/profile-framedphoto-shrink_800_800/B4DaAnn0TnKMAY-/0/1787371144842?e=1789120800&v=beta&t=7srfspEqVAXT0OUYHwKkXzdcrxQv89J02aby1tBOzOo',
+  avatar: 'https://drive.google.com/file/d/1hgqEvhCHmruvn8KtjBau7O7JBQG_UsC6/view?usp=sharing',
 };
 
 const coursework = [
@@ -127,6 +127,22 @@ const stackLayers = [
 const languages = ['C++', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML', 'CSS'];
 
 const projects = [
+   {
+  title: 'Aeroview 360',
+  description: 'Enterprise-grade construction management dashboard with 360° virtual tours, video walkthroughs, progress image galleries, and dynamic admin panel. Built with role-based access, real-time media streaming, and strict client data isolation.',
+  tags: ['React.js', 'Node.js', 'PostgreSQL', 'Cloudinary', 'JWT', 'Tailwind CSS'],
+  github: 'https://github.com/adimadhubani/freelance3',
+  live: 'https://freelance3-theta.vercel.app/login',
+  featured: true,
+},
+{
+  title: 'Razorpay IntentGuard',
+  description: 'Sub-50ms dual-layer security gateway & firewall for autonomous AI shopping agents. Neutralizes budget overruns, semantic category drift, and indirect prompt injection attacks before reaching Razorpay payment rails, featuring real-time Socket.io telemetry.',
+  tags: ['React.js', 'Node.js', 'Express.js', 'Socket.io', 'Gemini 2.0 Flash', 'Groq (Llama 3.1)', 'Razorpay API', 'Tailwind CSS'],
+  github: 'https://github.com/adimadhubani/razorpay_hackathon',
+  live: 'https://razorpay-hackathon-eight.vercel.app/',
+  featured: true,
+},
   {
     title: 'Agro Hybrid',
     description: 'ML-driven platform predicting optimal crop hybrids using real-time weather, geo-location and soil data. Built with React and integrated ML models via REST APIs.',
